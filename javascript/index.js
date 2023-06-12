@@ -4,7 +4,8 @@
 //btns to filter entries by general or programming
 
 const jokesAPI = "https://api.noroff.dev/api/v1/jokes";
-const jokeContainer = document.querySelector(".fetchedHtml");
+const btnsContainer = document.querySelector(".fetchedBtns")
+const jokeContainer = document.querySelector(".fetchedJokes");
 
 fetch(jokesAPI)
     .then(res => res.json())
@@ -39,8 +40,9 @@ function displayJoke(joke) {
     jokeContainer.append(fetchedJoke)
 
     punchlineBtn.addEventListener("click", () => {
-        window.location.href="joke.html?id=${joke.id}";
-    })
+        window.location.href = `joke.html?id=${joke.id}`;
+    });
+
 }
 
 function filterBtns() {
@@ -56,7 +58,7 @@ function filterBtns() {
     programmingBtn.innerText = "Programming";
     fetchedBtns.appendChild(programmingBtn);
 
-    jokeContainer.prepend(fetchedBtns)
+    btnsContainer.appendChild(fetchedBtns)
 
 
 }
