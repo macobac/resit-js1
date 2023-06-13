@@ -4,7 +4,6 @@
 //btns to filter entries by general or programming
 
 const jokesAPI = "https://api.noroff.dev/api/v1/jokes";
-const btnsContainer = document.querySelector(".fetchedBtns")
 const jokeContainer = document.querySelector(".fetchedJokes");
 
 fetch(jokesAPI)
@@ -21,6 +20,7 @@ fetch(jokesAPI)
 
 function displayJoke(joke) {
     const fetchedJoke = document.createElement("div");
+    fetchedJoke.setAttribute("data-type", joke.type);
 
     const jokeSetup = document.createElement("p");
     jokeSetup.classList.add("setup");
@@ -46,19 +46,24 @@ function displayJoke(joke) {
 }
 
 function filterBtns() {
-    const fetchedBtns = document.createElement("div");
+    const generalBtn = document.querySelector(".generalBtn");
+    const programmingBtn = document.querySelector(".programmingBtn");
 
-    const generalBtn = document.createElement("button");
-    generalBtn.classList.add("generalBtn");
-    generalBtn.innerText = "General";
-    fetchedBtns.appendChild(generalBtn);
+    generalBtn.addEventListener("click", () => {
+        const jokes = document.querySelectorAll(".fetchedJokes > div");
+        jokes.forEach(joke => {
+            joke.classList.remove("hide");
+        });
+    });
 
-    const programmingBtn = document.createElement("button");
-    programmingBtn.classList.add("programmingBtn");
-    programmingBtn.innerText = "Programming";
-    fetchedBtns.appendChild(programmingBtn);
-
-    btnsContainer.appendChild(fetchedBtns)
-
-
+    programmingBtn.addEventListener("click", () => {
+        const jokes = document.querySelectorAll(".fetchedJokes > div");
+        jokes.forEach(joke => {
+            if (joke.getAttribute("data-type") !== "programming") {
+                joke.classList.add("hide");
+            } else {
+                joke.classList.remove("hide");
+            }
+        });
+    });
 }
