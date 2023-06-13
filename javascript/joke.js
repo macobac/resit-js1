@@ -15,6 +15,7 @@ fetch(jokesAPI + jokeId)
 
 function displayJoke(joke) {
     const fetchedJoke = document.createElement("div");
+    fetchedJoke.classList.add("fetchedJokeDiv");
     fetchedJoke.setAttribute("data-type", joke.type);
 
     const jokeSetup = document.createElement("p");
@@ -41,13 +42,19 @@ function displayJoke(joke) {
     jokeContainer.append(fetchedJoke)
 
     punchlineBtn.addEventListener("click", () => {
-       if (jokePunchline.style.display === "none") {
-        jokePunchline.style.display = "block";
-        punchlineBtn.innerText = "Hide Punchline";
-       } else {
-        jokePunchline.style.display = "none";
-        punchlineBtn.innerText = "View Punchline";
-       }
+        if (jokePunchline.style.display === "none") {
+            jokePunchline.style.display = "block";
+            punchlineBtn.innerText = "Hide Punchline";
+        } else {
+            jokePunchline.style.display = "none";
+            punchlineBtn.innerText = "View Punchline";
+        }
     });
+
 }
 
+const backBtn = document.querySelector(".back");
+
+backBtn.addEventListener("click", () => {
+    history.back()
+})

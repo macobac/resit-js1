@@ -1,3 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    color: rgb(16, 76, 16);
+    padding-bottom: 20px;
+}
+
 .hide {
     display: none;
+}
+
+main {
+    margin: 5% 7%;
+}
+
+button {
+    border: 1px solid rgb(111, 171, 111);
+    background-color: white;
+    border-radius: 2px;
+    padding: 7px 25px;
+}
+
+button:hover {
+    background-color: rgba(41, 164, 53, 0.355);
+}
+
+button:active {
+    background-color: rgba(2, 128, 38, 0.596);
+}
+
+.fetchedJokes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fetchedJokeDiv {
+    border: 1px solid rgb(111, 171, 111);
+    background-color: rgb(245, 245, 245);
+    border-radius: 2px;
+    padding: 10px 25px;
+    width: 250px;
+    height: auto;
+    margin: 20px;
+}
+
+.fetchedJokeDiv p {
+    padding-bottom: 15px;
+}
+
+.singleJoke div {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+}
+
+.singleJoke div button {
+    margin-bottom: 15px;
+}
+
+.back {
+    border: none;
+
+}
+
+.back:hover {
+    text-decoration: underline;
+    background-color: white;
 }

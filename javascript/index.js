@@ -15,6 +15,7 @@ fetch(jokesAPI)
 
 function displayJoke(joke) {
     const fetchedJoke = document.createElement("div");
+    fetchedJoke.classList.add("fetchedJokeDiv");
     fetchedJoke.setAttribute("data-type", joke.type);
 
     const jokeSetup = document.createElement("p");
